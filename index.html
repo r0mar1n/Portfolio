@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./Screenshot_2024-06-11_182244-transformed.png" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="index.html"><img src="./rb logo.png" id="rb-logo" height="50" class="color-filter" /></a>
+      <div class="links">
+        <a href="#aboutme" class="navlink">About me</a>
+        <a href="#projects" class="navlink">Projects</a>
+        <a href="#contact" class="navlink">Contact me</a>
+        <a href="./Resume_RosemaryBenny.pdf" class="resume" download="RosemaryBenny_Resume">Download Resume</a>
+
+      </div>
+    </nav>
+    <div class="partition">
+      <div class="main">
+        <div id="welcome-section">
+          <div class="another">
+            <div class="w1">
+              <h1>Hi!!! I'm Rosemary Benny</h1><br>
+              <p>I'm a third-year Computer Engineering student specializing in frontend development. Driven by curiosity and a passion for learning, I'm excited to explore and innovate in various IT fields. Dive into my projects and see what I've been working on!</p>
+            </div>
+            <div class="w2">
+              <img src="./rosemary-removebg-preview.png" height="300" class="profile-photo" />
+            </div>
+          </div>
+        </div>
+        <div id="aboutme">
+          <header id="section-head"><h2>About me</h2></header>
+          <p>I'm a third-year Computer Engineering student with a strong foundation in frontend development, including proficiency in HTML, CSS, and JavaScript. I'm eager to experience and broaden my horizons in various fields within the IT industry. Known for my strong work ethic and focus, I excel both independently and in team settings. Leading academic projects has honed my leadership and project management skills. Though I am a fresher, my academic projects and team roles have prepared me to contribute effectively to any technical team.</p><br>
+          <h3 class="project-title">Education</h3><br>
+          <p><strong>Bachelor of Engineering(B.E), Computer Science</strong><br>
+            Fr. Conceicao Rodrigues Institute Of Technology<br>
+            Nov 2022 - Ongoing<br><br>
+            <strong>Senior Secondary (XII), Science</strong><br>
+            St. Xavier’s College - Mumbai<br>
+            (MAHARASHTRA STATE BOARD OF SECONDARY AND HIGHER SECONDARY EDUCATION board) <br>
+            Percentage: 66.17%<br>
+            Year of completion: 2022<br><br>
+            <strong>Secondary (X)</strong><br>
+            Holy Mary Convent High School<br>
+            (MAHARASHTRA STATE BOARD OF SECONDARY AND HIGHER SECONDARY EDUCATION board)<br>
+            percentage: 90.40%<br>
+            Year of completion: 2020
+          </p>
+        </div>
+        <div id="projects">
+          <header id="section-head"><h2>My Projects</h2></header>
+          <div class="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="project-tile">
+                  <div class="project-info">
+                    <h3 class="project-title">Faculty Portal with Leave Application System</h3><br>
+                    <p>Partook in the development of a comprehensive leave application system at Fr. C. Rodrigues Institute of Technology, utilizing HTML, CSS, JavaScript, and SQL. The portal streamlines leave request processing, categorizes various leave types, and provides easy access to academic timetables and individual salary statements.</p><br>
+                    <button class="proj-link"><a href="https://github.com/Christina1911/Faculty-portal-client">View project</a></button>
+                  </div>
+                  <div class="project-pic"><img src="./faculty portal ss.png" ></div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="project-tile">
+                  <div class="project-info">
+                    <h3 class="project-title">Food Ordering System for Canteen</h3><br>
+                    <p>Contributed to developing a web application, specializing in frontend interface design and interactivity using HTML, CSS, and JavaScript. Demonstrating proficiency in frontend web technologies and strong teamwork skills throughout the project.</p><br>
+                    <button class="proj-link"><a href="https://github.com/r0mar1n/codecrashers">View project</a></button>
+                  </div>
+                  <div class="project-pic"><img src="./a la carte .png" height="500px"></div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+            <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+          </div>
+        </div>
+        <div id="contact">
+          <h2>You can find me here.</h2><br>
+          <div class="details">
+            <p>Thane, Maharashtra- 421302<br>
+              Phone: +91 8799915774<br>
+              Email: bennyrosemary65@gmail.com</p>
+          </div>
+          <div class="d2">
+            <a href="http://www.linkedin.com/in/rosemary-benny-9211342a4" id="profile-link" target="_blank">LinkedIn profile</a><br>
+            <a href="https://github.com/r0mar1n" id="profile-link">GitHub Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+     document.addEventListener('DOMContentLoaded', function () {
+  const navbarHeight = document.getElementById('navbar').offsetHeight; // Get the height of the navbar
+
+  // Function to handle smooth scrolling with offset
+  function scrollToElement(target) {
+    const targetElement = document.querySelector(target);
+    const targetPosition = targetElement.offsetTop - navbarHeight; // Calculate the target position with offset
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
+
+  // Smooth scroll to section when clicking on navbar links
+  const navLinks = document.querySelectorAll('.navlink');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      const target = this.getAttribute('href');
+      scrollToElement(target);
+    });
+  });
+
+  // JavaScript code for carousel functionality
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    if (slides.length === 0) return;
+    
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      slide.style.display = 'none'; // Ensure slide is hidden
+      if (i === index) {
+        slide.classList.add('active');
+        slide.style.display = 'block'; // Ensure slide is shown
+      }
+    });
+  }
+
+
+  function nextSlide() {
+    const slides = document.querySelectorAll('.carousel-item');
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    const slides = document.querySelectorAll('.carousel-item');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  document.querySelector('.next').addEventListener('click', nextSlide);
+  document.querySelector('.prev').addEventListener('click', prevSlide);
+
+  // Initialize the first slide
+  showSlide(currentSlide);
+});
+
+
+    </script>
+  </body>
+</html>
